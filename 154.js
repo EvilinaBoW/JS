@@ -1,0 +1,1 @@
+const getFirst = ([first]) => first;

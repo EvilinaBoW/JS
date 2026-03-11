@@ -1,0 +1,1 @@
+const process = arr => arr.map(n => n * 2).filter(n => n > 10).reduce((a, b) => a + b, 0);

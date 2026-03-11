@@ -1,0 +1,1 @@
+const toUsers = names => names.map(name => ({ name }));

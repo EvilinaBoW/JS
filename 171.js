@@ -1,0 +1,1 @@
+const extract = ({ user: { name: username = "Guest" }, age: userAge = 18 }) => `${username} (${userAge})`;

@@ -1,0 +1,1 @@
+const getLength = str => str.length;

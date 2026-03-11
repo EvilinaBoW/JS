@@ -1,0 +1,1 @@
+const createMultiplier = factor => num => num * factor;

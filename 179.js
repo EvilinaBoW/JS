@@ -1,0 +1,1 @@
+const update = state => updater => ({ ...state, ...updater(state) });

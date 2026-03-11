@@ -1,0 +1,1 @@
+const sumAll = (...nums) => nums.reduce((acc, n) => acc + n, 0);

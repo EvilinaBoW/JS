@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>180 решений — Функции, стрелки и т.д</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+    :root {
+      --bg: #0a0a0f;
+      --card: #13131a;
+      --border: #2a2a3d;
+      --accent: #a855f7;
+      --text: #e2e8f0;
+    }
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      background: linear-gradient(90deg, #a855f7, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 50px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .topic {
+      margin: 60px 0 30px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #a855f7;
+    }
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    summary {
+      padding: 18px 24px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.05rem;
+    }
+    .file-name {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    pre {
+      margin: 0;
+      padding: 24px;
+      background: #0f0f17;
+      border-top: 1px solid var(--border);
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .copy-btn {
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      background: rgba(168, 85, 247, 0.2);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: #a855f7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>180 решений</h1>
+    <p class="subtitle">Все задания • Каждый блок = отдельный файл N.js</p>
+
+    <div class="topic">Функции (1–60)</div>
+
+    <details open><summary><span class="file-name">1.js</span> — Задание #001</summary><pre><code>function greet(name) {
+  return `Привет, ${name}!`;
+}</code></pre></details>
+    <details><summary><span class="file-name">2.js</span> — Задание #002</summary><pre><code>function sum(a, b) {
+  return a + b;
+}</code></pre></details>
+    <details><summary><span class="file-name">3.js</span> — Задание #003</summary><pre><code>// return завершает функцию и возвращает значение
+// console.log только выводит в консоль</code></pre></details>
+    <details><summary><span class="file-name">4.js</span> — Задание #004</summary><pre><code>// Параметры — имена в объявлении функции
+// Аргументы — значения при вызове</code></pre></details>
+    <details><summary><span class="file-name">5.js</span> — Задание #005</summary><pre><code>function isEven(n) {
+  return n % 2 === 0;
+}</code></pre></details>
+    <details><summary><span class="file-name">6.js</span> — Задание #006</summary><pre><code>// Недостающие параметры получают undefined</code></pre></details>
+    <details><summary><span class="file-name">7.js</span> — Задание #007</summary><pre><code>function greet(name = "Гость") {
+  return `Привет, ${name}!`;
+}</code></pre></details>
+    <details><summary><span class="file-name">8.js</span> — Задание #008</summary><pre><code>function power(base, exp = 2) {
+  return base ** exp;
+}</code></pre></details>
+    <details><summary><span class="file-name">9.js</span> — Задание #009</summary><pre><code>function showArgs() {
+  for (let i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}</code></pre></details>
+    <details><summary><span class="file-name">10.js</span> — Задание #010</summary><pre><code>function max(a, b, c) {
+  return Math.max(a, b, c);
+}</code></pre></details>
+    <details><summary><span class="file-name">11.js</span> — Задание #011</summary><pre><code>function sumAll(...nums) {
+  return nums.reduce((acc, n) => acc + n, 0);
+}</code></pre></details>
+    <details><summary><span class="file-name">12.js</span> — Задание #012</summary><pre><code>function repeat(str, n) {
+  return str.repeat(n);
+}</code></pre></details>
+    <details><summary><span class="file-name">13.js</span> — Задание #013</summary><pre><code>// Function Declaration полностью поднимается (hoisting)</code></pre></details>
+    <details><summary><span class="file-name">14.js</span> — Задание #014</summary><pre><code>// Только Function Declaration можно вызвать до объявления</code></pre></details>
+    <details><summary><span class="file-name">15.js</span> — Задание #015</summary><pre><code>function celsiusToFahrenheit(c) {
+  return c * 9 / 5 + 32;
+}</code></pre></details>
+    <details><summary><span class="file-name">16.js</span> — Задание #016</summary><pre><code>function getFullName(firstName, lastName) {
+  return `${firstName} ${lastName}`;
+}</code></pre></details>
+    <details><summary><span class="file-name">17.js</span> — Задание #017</summary><pre><code>// undefined</code></pre></details>
+    <details><summary><span class="file-name">18.js</span> — Задание #018</summary><pre><code>function absolute(n) {
+  return n < 0 ? -n : n;
+}</code></pre></details>
+    <details><summary><span class="file-name">19.js</span> — Задание #019</summary><pre><code>function countdown(n) {
+  if (n < 0) return;
+  console.log(n);
+  countdown(n - 1);
+}</code></pre></details>
+    <details><summary><span class="file-name">20.js</span> — Задание #020</summary><pre><code>function clamp(val, min, max) {
+  return Math.max(min, Math.min(max, val));
+}</code></pre></details>
+
+    <details><summary><span class="file-name">21.js</span> — Задание #021</summary><pre><code>// Function scope — переменные var видны только внутри функции
+// Block scope — let и const видны только внутри {} </code></pre></details>
+    <details><summary><span class="file-name">22.js</span> — Задание #022</summary><pre><code>function createCounter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">23.js</span> — Задание #023</summary><pre><code>function makeMultiplier(factor) {
+  return function(num) {
+    return num * factor;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">24.js</span> — Задание #024</summary><pre><code>function pureAdd(a, b) {
+  return a + b;
+}
+let total = 0;
+function impureAdd(x) {
+  total += x;
+  return total;
+}</code></pre></details>
+    <details><summary><span class="file-name">25.js</span> — Задание #025</summary><pre><code>function factorial(n) {
+  return n <= 1 ? 1 : n * factorial(n - 1);
+}</code></pre></details>
+    <details><summary><span class="file-name">26.js</span> — Задание #026</summary><pre><code>function applyTwice(fn, value) {
+  return fn(fn(value));
+}</code></pre></details>
+    <details><summary><span class="file-name">27.js</span> — Задание #027</summary><pre><code>function compose(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">28.js</span> — Задание #028</summary><pre><code>function sum(a) {
+  return function(b) {
+    return a + b;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">29.js</span> — Задание #029</summary><pre><code>function greet(greeting) {
+  console.log(greeting + " " + this.name);
+}</code></pre></details>
+    <details><summary><span class="file-name">30.js</span> — Задание #030</summary><pre><code>// this зависит от того, как функция была вызвана</code></pre></details>
+    <details><summary><span class="file-name">31.js</span> — Задание #031</summary><pre><code>function memoize(fn) {
+  const cache = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (key in cache) return cache[key];
+    const result = fn(...args);
+    cache[key] = result;
+    return result;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">32.js</span> — Задание #032</summary><pre><code>(function() {
+  const privateVar = 42;
+})();</code></pre></details>
+    <details><summary><span class="file-name">33.js</span> — Задание #033</summary><pre><code>function pipe(...fns) {
+  return function(x) {
+    return fns.reduce((acc, fn) => fn(acc), x);
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">34.js</span> — Задание #034</summary><pre><code>// Побочные эффекты — изменение внешних данных, console, запросы</code></pre></details>
+    <details><summary><span class="file-name">35.js</span> — Задание #035</summary><pre><code>function once(fn) {
+  let called = false;
+  return function(...args) {
+    if (called) return;
+    called = true;
+    return fn(...args);
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">36.js</span> — Задание #036</summary><pre><code>// Без базового случая происходит stack overflow</code></pre></details>
+    <details><summary><span class="file-name">37.js</span> — Задание #037</summary><pre><code>function debounce(fn, delay) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">38.js</span> — Задание #038</summary><pre><code>function partial(fn, ...fixedArgs) {
+  return function(...remainingArgs) {
+    return fn(...fixedArgs, ...remainingArgs);
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">39.js</span> — Задание #039</summary><pre><code>function deepClone(obj) {
+  if (obj === null || typeof obj !== "object") return obj;
+  const clone = Array.isArray(obj) ? [] : {};
+  for (let key in obj) {
+    clone[key] = deepClone(obj[key]);
+  }
+  return clone;
+}</code></pre></details>
+    <details><summary><span class="file-name">40.js</span> — Задание #040</summary><pre><code>function factorial(n, acc = 1) {
+  return n <= 1 ? acc : factorial(n - 1, acc * n);
+}</code></pre></details>
+
+    <details><summary><span class="file-name">41.js</span> — Задание #041</summary><pre><code>function curry(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) return fn(...args);
+    return (...next) => curried(...args, ...next);
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">42.js</span> — Задание #042</summary><pre><code>function trampoline(fn) {
+  return function(...args) {
+    let result = fn(...args);
+    while (typeof result === "function") result = result();
+    return result;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">43.js</span> — Задание #043</summary><pre><code>function throttle(fn, limit) {
+  let last = 0;
+  return function(...args) {
+    const now = Date.now();
+    if (now - last >= limit) {
+      last = now;
+      fn(...args);
+    }
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">44.js</span> — Задание #044</summary><pre><code>const Maybe = value => ({
+  map: fn => value == null ? Maybe(null) : Maybe(fn(value)),
+  get: () => value
+});</code></pre></details>
+    <details><summary><span class="file-name">45.js</span> — Задание #045</summary><pre><code>function memoizeDeep(fn) {
+  const cache = new Map();
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) return cache.get(key);
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">46.js</span> — Задание #046</summary><pre><code>function asyncCompose(...fns) {
+  return async function(x) {
+    let result = x;
+    for (let i = fns.length - 1; i >= 0; i--) {
+      result = await fns[i](result);
+    }
+    return result;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">47.js</span> — Задание #047</summary><pre><code>// Все функции замыкают одну и ту же переменную i (var)</code></pre></details>
+    <details><summary><span class="file-name">48.js</span> — Задание #048</summary><pre><code>function overload(...implementations) {
+  const map = new Map();
+  implementations.forEach(fn => map.set(fn.length, fn));
+  return function(...args) {
+    const fn = map.get(args.length);
+    return fn ? fn(...args) : undefined;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">49.js</span> — Задание #049</summary><pre><code>async function retry(fn, times) {
+  for (let i = 0; i < times; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      if (i === times - 1) throw e;
+    }
+  }
+}</code></pre></details>
+    <details><summary><span class="file-name">50.js</span> — Задание #050</summary><pre><code>function factorial(n, cont) {
+  return n <= 1 ? cont(1) : factorial(n - 1, res => cont(n * res));
+}</code></pre></details>
+    <details><summary><span class="file-name">51.js</span> — Задание #051</summary><pre><code>function flatten(arr, acc = []) {
+  for (let item of arr) {
+    Array.isArray(item) ? flatten(item, acc) : acc.push(item);
+  }
+  return acc;
+}</code></pre></details>
+    <details><summary><span class="file-name">52.js</span> — Задание #052</summary><pre><code>function juxt(...fns) {
+  return function(value) {
+    return fns.map(fn => fn(value));
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">53.js</span> — Задание #053</summary><pre><code>function* infinite() {
+  let i = 0;
+  while (true) yield i++;
+}</code></pre></details>
+    <details><summary><span class="file-name">54.js</span> — Задание #054</summary><pre><code>function createObserver() {
+  const listeners = [];
+  return {
+    subscribe: fn => listeners.push(fn),
+    notify: data => listeners.forEach(fn => fn(data))
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">55.js</span> — Задание #055</summary><pre><code>function createEnum(...keys) {
+  const obj = {};
+  keys.forEach((key, i) => obj[key] = i);
+  return Object.freeze(obj);
+}</code></pre></details>
+    <details><summary><span class="file-name">56.js</span> — Задание #056</summary><pre><code>// compose(f, g)(x) === f(g(x))</code></pre></details>
+    <details><summary><span class="file-name">57.js</span> — Задание #057</summary><pre><code>function zip(...arrs) {
+  const length = Math.min(...arrs.map(a => a.length));
+  return Array.from({ length }, (_, i) => arrs.map(a => a[i]));
+}</code></pre></details>
+    <details><summary><span class="file-name">58.js</span> — Задание #058</summary><pre><code>function createPrivate(init) {
+  let state = init;
+  return {
+    get: () => state,
+    set: value => { state = value; }
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">59.js</span> — Задание #059</summary><pre><code>async function asyncPool(limit, tasks) {
+  const results = [];
+  const executing = [];
+  for (const task of tasks) {
+    const p = task().then(result => {
+      executing.splice(executing.indexOf(p), 1);
+      return result;
+    });
+    results.push(p);
+    executing.push(p);
+    if (executing.length >= limit) await Promise.race(executing);
+  }
+  return Promise.all(results);
+}</code></pre></details>
+    <details><summary><span class="file-name">60.js</span> — Задание #060</summary><pre><code>function Box(value) {
+  return {
+    map: fn => Box(fn(value)),
+    get: () => value
+  };
+}</code></pre></details>
+
+    <div class="topic">Function Expression (61–120)</div>
+
+    <details><summary><span class="file-name">61.js</span> — Задание #061</summary><pre><code>const sum = function(a, b) {
+  return a + b;
+};</code></pre></details>
+    <details><summary><span class="file-name">62.js</span> — Задание #062</summary><pre><code>const square = function(num) {
+  return num * num;
+};</code></pre></details>
+    <details><summary><span class="file-name">63.js</span> — Задание #063</summary><pre><code>// ReferenceError</code></pre></details>
+    <details><summary><span class="file-name">64.js</span> — Задание #064</summary><pre><code>const sayHello = function() {
+  console.log("Привет");
+};</code></pre></details>
+    <details><summary><span class="file-name">65.js</span> — Задание #065</summary><pre><code>const factorial = function fact(n) {
+  return n <= 1 ? 1 : n * fact(n - 1);
+};</code></pre></details>
+    <details><summary><span class="file-name">66.js</span> — Задание #066</summary><pre><code>setTimeout(function() {
+  console.log("done");
+}, 1000);</code></pre></details>
+    <details><summary><span class="file-name">67.js</span> — Задание #067</summary><pre><code>function callback() {
+  console.log("callback выполнен");
+}
+setTimeout(callback, 1000);</code></pre></details>
+    <details><summary><span class="file-name">68.js</span> — Задание #068</summary><pre><code>const multiply = function(a, b) {
+  return a * b;
+};</code></pre></details>
+    <details><summary><span class="file-name">69.js</span> — Задание #069</summary><pre><code>const user = {
+  name: "Анна",
+  sayHi: function() {
+    console.log("Привет");
+  }
+};</code></pre></details>
+    <details><summary><span class="file-name">70.js</span> — Задание #070</summary><pre><code>const run = function(fn) {
+  fn();
+};</code></pre></details>
+    <details><summary><span class="file-name">71.js</span> — Задание #071</summary><pre><code>// "function"</code></pre></details>
+    <details><summary><span class="file-name">72.js</span> — Задание #072</summary><pre><code>[1, 2, 3].forEach(function(n) {
+  console.log(n);
+});</code></pre></details>
+    <details><summary><span class="file-name">73.js</span> — Задание #073</summary><pre><code>// Первое — Function Expression (не поднимается)
+// Второе — Function Declaration (поднимается)</code></pre></details>
+    <details><summary><span class="file-name">74.js</span> — Задание #074</summary><pre><code>const greet = function(name = "Гость") {
+  return `Привет, ${name}!`;
+};</code></pre></details>
+    <details><summary><span class="file-name">75.js</span> — Задание #075</summary><pre><code>// const переопределить нельзя (TypeError)</code></pre></details>
+    <details><summary><span class="file-name">76.js</span> — Задание #076</summary><pre><code>const runTwice = function(fn) {
+  fn();
+  fn();
+};</code></pre></details>
+    <details><summary><span class="file-name">77.js</span> — Задание #077</summary><pre><code>// ReferenceError (Temporal Dead Zone)</code></pre></details>
+    <details><summary><span class="file-name">78.js</span> — Задание #078</summary><pre><code>const arr = [
+  function() { console.log(1); },
+  function() { console.log(2); },
+  function() { console.log(3); }
+];
+arr.forEach(fn => fn());</code></pre></details>
+    <details><summary><span class="file-name">79.js</span> — Задание #079</summary><pre><code>// Функцию можно присваивать переменным, передавать как аргумент и возвращать</code></pre></details>
+    <details><summary><span class="file-name">80.js</span> — Задание #080</summary><pre><code>const create = function(factor) {
+  return function(n) {
+    return n * factor;
+  };
+};</code></pre></details>
+
+    <details><summary><span class="file-name">81.js</span> — Задание #081</summary><pre><code>// Function Declaration поднимается полностью, Function Expression — только объявление</code></pre></details>
+    <details><summary><span class="file-name">82.js</span> — Задание #082</summary><pre><code>function apply(fn, value) {
+  return fn(value);
+}</code></pre></details>
+    <details><summary><span class="file-name">83.js</span> — Задание #083</summary><pre><code>(function() {})();
+(function() {})();</code></pre></details>
+    <details><summary><span class="file-name">84.js</span> — Задание #084</summary><pre><code>const module = (function() {
+  let privateVar = 42;
+  return {
+    get: function() { return privateVar; }
+  };
+})();</code></pre></details>
+    <details><summary><span class="file-name">85.js</span> — Задание #085</summary><pre><code>const factorial = function f(n) {
+  return n <= 1 ? 1 : n * f(n - 1);
+};</code></pre></details>
+    <details><summary><span class="file-name">86.js</span> — Задание #086</summary><pre><code>[1, 2, 3].map(function(n) { return n * 2; });
+[1, 2, 3].filter(function(n) { return n > 1; });
+[1, 2, 3].reduce(function(acc, n) { return acc + n; }, 0);</code></pre></details>
+    <details><summary><span class="file-name">87.js</span> — Задание #087</summary><pre><code>const createCounter = function() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">88.js</span> — Задание #088</summary><pre><code>const createAdder = function(n) {
+  return function(x) {
+    return x + n;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">89.js</span> — Задание #089</summary><pre><code>// Имя функции остаётся доступным даже если переменная переопределена</code></pre></details>
+    <details><summary><span class="file-name">90.js</span> — Задание #090</summary><pre><code>const compose = function(f, g) {
+  return function(x) {
+    return f(g(x));
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">91.js</span> — Задание #091</summary><pre><code>// button.addEventListener('click', function() { ... });</code></pre></details>
+    <details><summary><span class="file-name">92.js</span> — Задание #092</summary><pre><code>const strategies = {
+  add: function(a, b) { return a + b; },
+  multiply: function(a, b) { return a * b; }
+};</code></pre></details>
+    <details><summary><span class="file-name">93.js</span> — Задание #093</summary><pre><code>function myForEach(arr, callback) {
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i, arr);
+  }
+}</code></pre></details>
+    <details><summary><span class="file-name">94.js</span> — Задание #094</summary><pre><code>const memoize = function(fn) {
+  const cache = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (key in cache) return cache[key];
+    cache[key] = fn(...args);
+    return cache[key];
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">95.js</span> — Задание #095</summary><pre><code>// Declaration и именованное Expression имеют имя. Анонимное — пустая строка</code></pre></details>
+    <details><summary><span class="file-name">96.js</span> — Задание #096</summary><pre><code>function createValidator(rules) {
+  return function(obj) {
+    for (let key in rules) {
+      if (!rules[key](obj[key])) return false;
+    }
+    return true;
+  };
+}</code></pre></details>
+    <details><summary><span class="file-name">97.js</span> — Задание #097</summary><pre><code>// Имя функции только для чтения</code></pre></details>
+    <details><summary><span class="file-name">98.js</span> — Задание #098</summary><pre><code>const calc = function(value) {
+  return {
+    add: function(n) {
+      value += n;
+      return this;
+    },
+    get: function() { return value; }
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">99.js</span> — Задание #099</summary><pre><code>const once = function(fn) {
+  let done = false;
+  return function(...args) {
+    if (done) return;
+    done = true;
+    return fn(...args);
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">100.js</span> — Задание #100</summary><pre><code>// Function Expression идеально подходит как значение свойства</code></pre></details>
+
+    <details><summary><span class="file-name">101.js</span> — Задание #101</summary><pre><code>const Y = function(f) {
+  return (function(x) {
+    return f(function(y) { return x(x)(y); });
+  })(function(x) {
+    return f(function(y) { return x(x)(y); });
+  });
+};</code></pre></details>
+    <details><summary><span class="file-name">102.js</span> — Задание #102</summary><pre><code>// Ловушка: все функции замыкают одну переменную. Исправление: let в блоке</code></pre></details>
+    <details><summary><span class="file-name">103.js</span> — Задание #103</summary><pre><code>const pipeline = function(...fns) {
+  return function(value) {
+    return fns.reduce((acc, fn) => fn(acc), value);
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">104.js</span> — Задание #104</summary><pre><code>const curry = function(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) return fn(...args);
+    return (...next) => curried(...args, ...next);
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">105.js</span> — Задание #105</summary><pre><code>const partial = function(fn, ...fixed) {
+  return function(...rest) {
+    return fn(...fixed, ...rest);
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">106.js</span> — Задание #106</summary><pre><code>const decorator = function(fn) {
+  return function(...args) {
+    console.log("before");
+    const result = fn(...args);
+    console.log("after");
+    return result;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">107.js</span> — Задание #107</summary><pre><code>const lazy = function(fn) {
+  let result;
+  let computed = false;
+  return function() {
+    if (!computed) {
+      result = fn();
+      computed = true;
+    }
+    return result;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">108.js</span> — Задание #108</summary><pre><code>// Как метод — this = объект. Как callback — this = undefined (strict)</code></pre></details>
+    <details><summary><span class="file-name">109.js</span> — Задание #109</summary><pre><code>const createEmitter = function() {
+  const events = {};
+  return {
+    on: function(name, fn) {
+      events[name] = events[name] || [];
+      events[name].push(fn);
+    },
+    off: function(name, fn) {
+      events[name] = events[name].filter(f => f !== fn);
+    },
+    emit: function(name, ...args) {
+      (events[name] || []).forEach(fn => fn(...args));
+    }
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">110.js</span> — Задание #110</summary><pre><code>const memoizeAsync = function(fn) {
+  const cache = {};
+  return async function(...args) {
+    const key = JSON.stringify(args);
+    if (key in cache) return cache[key];
+    const result = await fn(...args);
+    cache[key] = result;
+    return result;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">111.js</span> — Задание #111</summary><pre><code>const sequence = function(...fns) {
+  return function(initial) {
+    return fns.reduce((acc, fn) => fn(acc), initial);
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">112.js</span> — Задание #112</summary><pre><code>// Функцию можно присваивать, передавать и возвращать</code></pre></details>
+    <details><summary><span class="file-name">113.js</span> — Задание #113</summary><pre><code>const createStateMachine = function(transitions) {
+  let state = Object.keys(transitions)[0];
+  return {
+    getState: function() { return state; },
+    transition: function(event) {
+      state = transitions[state][event] || state;
+    }
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">114.js</span> — Задание #114</summary><pre><code>const createMiddleware = function() {
+  const stack = [];
+  const use = function(fn) { stack.push(fn); };
+  const run = function(ctx) {
+    let i = 0;
+    const next = () => stack[i++] ? stack[i - 1](ctx, next) : null;
+    next();
+  };
+  return { use, run };
+};</code></pre></details>
+    <details><summary><span class="file-name">115.js</span> — Задание #115</summary><pre><code>// Вызов с одинаковыми аргументами всегда даёт один результат</code></pre></details>
+    <details><summary><span class="file-name">116.js</span> — Задание #116</summary><pre><code>const memoizeWithTTL = function(fn, ttl) {
+  const cache = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    const now = Date.now();
+    if (cache[key] && now - cache[key].time < ttl) return cache[key].value;
+    const value = fn(...args);
+    cache[key] = { value, time: now };
+    return value;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">117.js</span> — Задание #117</summary><pre><code>const createStore = function(reducer, initialState) {
+  let state = initialState;
+  const listeners = [];
+  return {
+    getState: function() { return state; },
+    dispatch: function(action) {
+      state = reducer(state, action);
+      listeners.forEach(l => l());
+    },
+    subscribe: function(listener) { listeners.push(listener); }
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">118.js</span> — Задание #118</summary><pre><code>const promisify = function(fn) {
+  return function(...args) {
+    return new Promise((resolve, reject) => {
+      fn(...args, (err, result) => err ? reject(err) : resolve(result));
+    });
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">119.js</span> — Задание #119</summary><pre><code>// Хранение общих данных в одном экземпляре</code></pre></details>
+    <details><summary><span class="file-name">120.js</span> — Задание #120</summary><pre><code>const createDI = function() {
+  const services = {};
+  return {
+    register: function(name, fn) { services[name] = fn; },
+    get: function(name) { return services[name](); }
+  };
+};</code></pre></details>
+
+    <div class="topic">Стрелочные функции (121–180)</div>
+
+    <details><summary><span class="file-name">121.js</span> — Задание #121</summary><pre><code>const sum = (a, b) => a + b;</code></pre></details>
+    <details><summary><span class="file-name">122.js</span> — Задание #122</summary><pre><code>const square = n => n * n;</code></pre></details>
+    <details><summary><span class="file-name">123.js</span> — Задание #123</summary><pre><code>const double = n => n * 2;</code></pre></details>
+    <details><summary><span class="file-name">124.js</span> — Задание #124</summary><pre><code>const makeUser = (name, age) => ({
+  name,
+  age
+});</code></pre></details>
+    <details><summary><span class="file-name">125.js</span> — Задание #125</summary><pre><code>const double = n => n * 2;</code></pre></details>
+    <details><summary><span class="file-name">126.js</span> — Задание #126</summary><pre><code>const greet = name => `Hi ${name}`;</code></pre></details>
+    <details><summary><span class="file-name">127.js</span> — Задание #127</summary><pre><code>[1, 2, 3].map(n => n * n);</code></pre></details>
+    <details><summary><span class="file-name">128.js</span> — Задание #128</summary><pre><code>[1, 2, 3, 4, 5].filter(n => n % 2 === 0);</code></pre></details>
+    <details><summary><span class="file-name">129.js</span> — Задание #129</summary><pre><code>[1, 2, 3, 4, 5].reduce((acc, n) => acc + n, 0);</code></pre></details>
+    <details><summary><span class="file-name">130.js</span> — Задание #130</summary><pre><code>const now = () => new Date().toLocaleTimeString();</code></pre></details>
+    <details><summary><span class="file-name">131.js</span> — Задание #131</summary><pre><code>const add = (a, b) => a + b;</code></pre></details>
+    <details><summary><span class="file-name">132.js</span> — Задание #132</summary><pre><code>const isPositive = n => n > 0;</code></pre></details>
+    <details><summary><span class="file-name">133.js</span> — Задание #133</summary><pre><code>setTimeout(() => console.log("done"), 1000);</code></pre></details>
+    <details><summary><span class="file-name">134.js</span> — Задание #134</summary><pre><code>const calc = (a, b) => {
+  const sum = a + b;
+  return sum;
+};</code></pre></details>
+    <details><summary><span class="file-name">135.js</span> — Задание #135</summary><pre><code>const greet = (name = "World") => `Hello, ${name}!`;</code></pre></details>
+    <details><summary><span class="file-name">136.js</span> — Задание #136</summary><pre><code>const sumAll = (...nums) => nums.reduce((acc, n) => acc + n, 0);</code></pre></details>
+    <details><summary><span class="file-name">137.js</span> — Задание #137</summary><pre><code>setTimeout(() => console.log("done"), 1000);</code></pre></details>
+    <details><summary><span class="file-name">138.js</span> — Задание #138</summary><pre><code>const getLength = str => str.length;</code></pre></details>
+    <details><summary><span class="file-name">139.js</span> — Задание #139</summary><pre><code>[5, 2, 8, 1].sort((a, b) => b - a);</code></pre></details>
+    <details><summary><span class="file-name">140.js</span> — Задание #140</summary><pre><code>const getName = user => user.name;</code></pre></details>
+
+    <details><summary><span class="file-name">141.js</span> — Задание #141</summary><pre><code>// Стрелка берёт this из лексического окружения</code></pre></details>
+    <details><summary><span class="file-name">142.js</span> — Задание #142</summary><pre><code>const obj = {
+  name: "Test",
+  say: () => console.log(this.name)
+};</code></pre></details>
+    <details><summary><span class="file-name">143.js</span> — Задание #143</summary><pre><code>const obj = {
+  name: "Алекс",
+  sayLater: function() {
+    setTimeout(() => console.log(this.name), 1000);
+  }
+};</code></pre></details>
+    <details><summary><span class="file-name">144.js</span> — Задание #144</summary><pre><code>// arguments не существует в стрелочных функциях</code></pre></details>
+    <details><summary><span class="file-name">145.js</span> — Задание #145</summary><pre><code>// TypeError</code></pre></details>
+    <details><summary><span class="file-name">146.js</span> — Задание #146</summary><pre><code>// Нет prototype</code></pre></details>
+    <details><summary><span class="file-name">147.js</span> — Задание #147</summary><pre><code>class Timer {
+  constructor() {
+    this.seconds = 0;
+    setInterval(() => this.seconds++, 1000);
+  }
+}</code></pre></details>
+    <details><summary><span class="file-name">148.js</span> — Задание #148</summary><pre><code>const add = a => b => a + b;</code></pre></details>
+    <details><summary><span class="file-name">149.js</span> — Задание #149</summary><pre><code>const compose = (f, g) => x => f(g(x));</code></pre></details>
+    <details><summary><span class="file-name">150.js</span> — Задание #150</summary><pre><code>const createMultiplier = factor => num => num * factor;</code></pre></details>
+    <details><summary><span class="file-name">151.js</span> — Задание #151</summary><pre><code>class User {
+  say = () => console.log("Hi");
+}</code></pre></details>
+    <details><summary><span class="file-name">152.js</span> — Задание #152</summary><pre><code>[1, 2, 3, 4]
+  .map(n => n * 2)
+  .filter(n => n > 4)
+  .reduce((a, b) => a + b, 0);</code></pre></details>
+    <details><summary><span class="file-name">153.js</span> — Задание #153</summary><pre><code>const getName = ({ name }) => name;</code></pre></details>
+    <details><summary><span class="file-name">154.js</span> — Задание #154</summary><pre><code>const getFirst = ([first]) => first;</code></pre></details>
+    <details><summary><span class="file-name">155.js</span> — Задание #155</summary><pre><code>const toUsers = names => names.map(name => ({ name }));</code></pre></details>
+    <details><summary><span class="file-name">156.js</span> — Задание #156</summary><pre><code>// bind не меняет this у стрелочной функции</code></pre></details>
+    <details><summary><span class="file-name">157.js</span> — Задание #157</summary><pre><code>const isPositive = n => n > 0;</code></pre></details>
+    <details><summary><span class="file-name">158.js</span> — Задание #158</summary><pre><code>const pipe = (...fns) => x => fns.reduce((acc, fn) => fn(acc), x);</code></pre></details>
+    <details><summary><span class="file-name">159.js</span> — Задание #159</summary><pre><code>// this остаётся лексическим</code></pre></details>
+    <details><summary><span class="file-name">160.js</span> — Задание #160</summary><pre><code>class Button {
+  constructor() {
+    this.clicked = 0;
+    document.addEventListener("click", () => this.clicked++);
+  }
+}</code></pre></details>
+
+    <details><summary><span class="file-name">161.js</span> — Задание #161</summary><pre><code>// Стрелочные функции не могут быть генераторами</code></pre></details>
+    <details><summary><span class="file-name">162.js</span> — Задание #162</summary><pre><code>const Y = f => (x => f(y => x(x)(y)))(x => f(y => x(x)(y)));</code></pre></details>
+    <details><summary><span class="file-name">163.js</span> — Задание #163</summary><pre><code>const memoize = fn => {
+  const cache = new WeakMap();
+  return (...args) => {
+    if (cache.has(args[0])) return cache.get(args[0]);
+    const result = fn(...args);
+    cache.set(args[0], result);
+    return result;
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">164.js</span> — Задание #164</summary><pre><code>// В объекте this из внешнего контекста. В классе — this экземпляра</code></pre></details>
+    <details><summary><span class="file-name">165.js</span> — Задание #165</summary><pre><code>const curry = fn => {
+  return function curried(...args) {
+    return args.length >= fn.length ? fn(...args) : (...next) => curried(...args, ...next);
+  };
+};</code></pre></details>
+    <details><summary><span class="file-name">166.js</span> — Задание #166</summary><pre><code>const builder = () => ({
+  config: {},
+  set: key => value => { builder.config[key] = value; return builder; },
+  build: () => ({ ...builder.config })
+});</code></pre></details>
+    <details><summary><span class="file-name">167.js</span> — Задание #167</summary><pre><code>// Каждый экземпляр создаёт свою копию функции → лишняя память</code></pre></details>
+    <details><summary><span class="file-name">168.js</span> — Задание #168</summary><pre><code>const trampoline = fn => (...args) => {
+  let result = fn(...args);
+  while (typeof result === "function") result = result();
+  return result;
+};</code></pre></details>
+    <details><summary><span class="file-name">169.js</span> — Задание #169</summary><pre><code>const process = arr => arr.map(n => n * 2).filter(n => n > 10).reduce((a, b) => a + b, 0);</code></pre></details>
+    <details><summary><span class="file-name">170.js</span> — Задание #170</summary><pre><code>const asyncPipe = (...fns) => async x => {
+  let result = x;
+  for (const fn of fns) result = await fn(result);
+  return result;
+};</code></pre></details>
+    <details><summary><span class="file-name">171.js</span> — Задание #171</summary><pre><code>const extract = ({ user: { name: username = "Guest" }, age: userAge = 18 }) => `${username} (${userAge})`;</code></pre></details>
+    <details><summary><span class="file-name">172.js</span> — Задание #172</summary><pre><code>// Создают новое лексическое окружение при каждом создании</code></pre></details>
+    <details><summary><span class="file-name">173.js</span> — Задание #173</summary><pre><code>const Option = value => ({
+  map: fn => value == null ? Option(null) : Option(fn(value)),
+  getOrElse: def => value == null ? def : value
+});</code></pre></details>
+    <details><summary><span class="file-name">174.js</span> — Задание #174</summary><pre><code>const createTask = (fn) => ({run: () => fn(), map: (f) => createTask(() => f(fn()))});</code></pre></details>
+    <details><summary><span class="file-name">175.js</span> — Задание #175</summary><pre><code>// this остаётся лексическим</code></pre></details>
+    <details><summary><span class="file-name">176.js</span> — Задание #176</summary><pre><code>const createSignal = value => {
+  let listeners = [];
+  return [
+    () => value,
+    newValue => {
+      value = newValue;
+      listeners.forEach(l => l());
+    },
+    listener => listeners.push(listener)
+  ];
+};</code></pre></details>
+    <details><summary><span class="file-name">177.js</span> — Задание #177</summary><pre><code>const flow = (...fns) => async (...args) => {
+  let result = args;
+  for (const fn of fns) {
+    try {
+      result = await fn(...(Array.isArray(result) ? result : [result]));
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
+  }
+  return result;
+};</code></pre></details>
+    <details><summary><span class="file-name">178.js</span> — Задание #178</summary><pre><code>// Можно перехватить apply, construct, get и т.д.</code></pre></details>
+    <details><summary><span class="file-name">179.js</span> — Задание #179</summary><pre><code>const update = state => updater => ({ ...state, ...updater(state) });</code></pre></details>
+    <details><summary><span class="file-name">180.js</span> — Задание #180</summary><pre><code>const useReducer = (reducer, init) => {
+  let state = init;
+  const listeners = [];
+  return [
+    () => state,
+    action => {
+      state = reducer(state, action);
+      listeners.forEach(l => l());
+    },
+    listener => listeners.push(listener)
+  ];
+};</code></pre></details>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('details').forEach(detail => {
+      const pre = detail.querySelector('pre');
+      if (!pre) return;
+      const btn = document.createElement('button');
+      btn.textContent = 'Копировать';
+      btn.className = 'copy-btn';
+      btn.onclick = () => {
+        navigator.clipboard.writeText(pre.textContent.trim());
+        btn.textContent = 'Скопировано';
+        setTimeout(() => btn.textContent = 'Копировать', 2000);
+      };
+      detail.querySelector('summary').appendChild(btn);
+    });
+  </script>
+</body>
+</html>

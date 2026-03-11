@@ -1,0 +1,1 @@
+const isPositive = n => n > 0;
