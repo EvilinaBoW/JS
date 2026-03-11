@@ -1,0 +1,4 @@
+function callback() {
+  console.log("callback");
+}
+setTimeout(callback, 1001);
