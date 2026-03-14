@@ -1,0 +1,282 @@
+console.log('Задание #001:');
+console.log(typeof "hello");
+
+console.log('Задание #002:');
+const str = "42";
+console.log(Number(str));
+console.log(parseInt(str));
+console.log(+str);
+
+console.log('Задание #003:');
+console.log(Number(""));
+console.log(Number(" "));
+
+console.log('Задание #004:');
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(null));
+
+console.log('Задание #005:');
+console.log(String(123));
+console.log((123).toString());
+
+console.log('Задание #006:');
+console.log(Boolean(false));
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(null));
+console.log(Boolean(undefined));
+console.log(Boolean(NaN));
+console.log(Boolean(0n));
+
+console.log('Задание #007:');
+console.log(Number(true));
+console.log(Number(false));
+
+console.log('Задание #008:');
+console.log(Boolean([]));
+console.log(Boolean({}));
+
+console.log('Задание #009:');
+console.log(Number("1") + 2);
+console.log("1" + 2);
+
+console.log('Переход к теме math...');
+
+console.log('Задание #034:');
+console.log(17 % 5);
+
+console.log('Задание #035:');
+console.log(2 ** 10);
+
+console.log('Задание #036:');
+let i = 0;
+console.log(++i);
+console.log(i++);
+
+console.log('Задание #037:');
+let x = 5;
+console.log(x++);
+console.log(x);
+
+console.log('Задание #038:');
+let x2 = 5;
+console.log(++x2);
+
+console.log('Задание #039:');
+console.log(10 / 3);
+console.log(Math.trunc(10 / 3));
+console.log(Math.floor(10 / 3));
+
+console.log('Задание #040:');
+console.log(Math.abs(-42));
+
+console.log('Задание #041:');
+console.log(Math.floor(Math.random() * 10) + 1);
+
+console.log('Задание #042:');
+console.log(Math.max(1, 2, 3));
+console.log(Math.min(1, 2, 3));
+
+console.log('Задание #043:');
+console.log(Math.round(4.5));
+console.log(Math.round(4.4));
+
+console.log('Переход к теме comparison...');
+
+console.log('Задание #066:');
+console.log(5 == '5');
+console.log(5 === '5');
+
+console.log('Задание #067:');
+console.log("5" == 5);
+console.log("5" === 5);
+
+console.log('Задание #068:');
+console.log(null == undefined);
+console.log(null === undefined);
+
+console.log('Задание #069:');
+console.log(null == 0);
+
+console.log('Задание #070:');
+console.log("apple" > "banana");
+
+console.log('Задание #071:');
+console.log(NaN === NaN);
+console.log(Number.isNaN(NaN));
+
+console.log('Задание #072:');
+console.log(1 < 2);
+console.log(1 > 2);
+console.log(1 <= 2);
+console.log(1 >= 2);
+
+console.log('Задание #073:');
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+
+console.log('Задание #074:');
+console.log("2" > "12");
+
+console.log('Задание #075:');
+function isEqual(a, b) {
+  return a === b;
+}
+console.log(isEqual(5, 5));
+console.log(isEqual(5, '5'));
+
+console.log('Переход к теме conditions...');
+
+console.log('Задание #098:');
+function checkNumber(num) {
+  if (num > 0) {
+    return "positive";
+  } else if (num < 0) {
+    return "negative";
+  } else {
+    return "zero";
+  }
+}
+console.log(checkNumber(5));
+console.log(checkNumber(-3));
+console.log(checkNumber(0));
+
+console.log('Задание #099:');
+const age = 20;
+const status = age >= 18 ? "adult" : "minor";
+console.log(status);
+
+console.log('Задание #100:');
+let x3 = 0;
+if (x3) {
+  console.log("true");
+} else {
+  console.log("false");
+}
+
+console.log('Задание #101:');
+function checkEvenOdd(n) {
+  if (n % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+}
+console.log(checkEvenOdd(4));
+console.log(checkEvenOdd(3));
+
+console.log('Задание #102:');
+function getDayName(day) {
+  switch (day) {
+    case 1: return "Monday";
+    case 2: return "Tuesday";
+    default: return "Invalid day";
+  }
+}
+console.log(getDayName(1));
+
+console.log('Задание #103:');
+let day = 1;
+switch (day) {
+  case 1:
+    console.log("Monday");
+  case 2:
+    console.log("Tuesday");
+    break;
+}
+
+console.log('Задание #104:');
+const age2 = 16;
+console.log(age2 >= 18 ? "adult" : "minor");
+
+console.log('Задание #105:');
+switch (999) {
+  case 1: console.log("one"); break;
+  default: console.log("unknown");
+}
+
+console.log('Задание #106:');
+switch ("hello") {
+  case "hello": console.log("hi"); break;
+}
+
+console.log('Задание #107:');
+let num = 5;
+let result = num > 3 ? (num > 7 ? "big" : "medium") : "small";
+console.log(result);
+
+console.log('Переход к теме logical...');
+
+console.log('Задание #130:');
+console.log(1 && 2 && 3);
+
+console.log('Задание #131:');
+console.log(1 || 2 || 3);
+
+console.log('Задание #132:');
+console.log(1 && 2 && 3);
+
+console.log('Задание #133:');
+console.log(1 || 2 || 3);
+
+console.log('Задание #134:');
+console.log(0 && "hello");
+
+console.log('Задание #135:');
+console.log(false || "default");
+
+console.log('Задание #136:');
+console.log(!true);
+console.log(!0);
+
+console.log('Задание #137:');
+console.log(!!"hello");
+console.log(!!0);
+
+console.log('Задание #138:');
+console.log(true && false || true);
+
+console.log('Задание #139:');
+console.log(null || undefined || 0 || "" || "hello");
+
+console.log('Переход к теме nullish...');
+
+console.log('Задание #162:');
+console.log(0 ?? "default");
+
+console.log('Задание #163:');
+console.log(null ?? "default");
+console.log(undefined ?? "default");
+
+console.log('Задание #164:');
+console.log(0 ?? "default");
+console.log(0 || "default");
+
+console.log('Задание #165:');
+console.log("" ?? "default");
+console.log("" || "default");
+
+console.log('Задание #166:');
+console.log(false ?? "default");
+
+console.log('Задание #167:');
+console.log(NaN ?? "default");
+
+console.log('Задание #168:');
+
+console.log('Задание #169:');
+let x4 = null;
+x4 ??= 42;
+console.log(x4);
+
+console.log('Задание #170:');
+let x5 = 0;
+x5 ??= 42;
+console.log(x5);
+
+console.log('Задание #171:');
+const obj = { name: null };
+const { name = null } = obj;
+const safeName = name ?? "Unknown";
+console.log(safeName);
