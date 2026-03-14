@@ -1,0 +1,431 @@
+```javascript
+console.log('Задание #021:');
+console.log([] + []);
+console.log({} + []);
+
+console.log('Задание #022:');
+console.log(+"");
+console.log(+[]);
+console.log(+{});
+console.log(+null);
+
+console.log('Задание #023:');
+console.log(0.1 + 0.2 === 0.3);
+console.log(Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON);
+
+console.log('Задание #024:');
+
+console.log('Задание #025:');
+function safeNumber(val) {
+  const num = Number(val);
+  return Number.isNaN(num) ? 0 : num;
+}
+console.log(safeNumber('abc'));
+console.log(safeNumber('42'));
+
+console.log('Задание #026:');
+const obj = { valueOf: () => 42, toString: () => 'obj' };
+console.log(+obj);
+
+console.log('Задание #027:');
+console.log(parseInt('3.7'));
+console.log(Math.trunc(3.7));
+
+console.log('Задание #028:');
+console.log(Number([1]));
+console.log(Number([1,2]));
+console.log(Number([]));
+
+console.log('Задание #029:');
+console.log(BigInt(42));
+console.log(Number(42n));
+
+console.log('Задание #030:');
+const obj2 = {
+  [Symbol.toPrimitive](hint) {
+    return hint === 'number' ? 100 : 'obj';
+  }
+};
+console.log(+obj2);
+
+console.log('Задание #031:');
+console.log(null + undefined);
+
+console.log('Задание #032:');
+function getType(val) {
+  return typeof val === 'object' && val === null ? 'null' : typeof val;
+}
+console.log(getType(null));
+console.log(getType(42));
+
+console.log('Задание #033:');
+console.log(~~3.7);
+
+console.log('Переход к теме math (hard)...');
+
+console.log('Задание #054:');
+function factorialRec(n) {
+  return n <= 1 ? 1 : n * factorialRec(n - 1);
+}
+function factorialLoop(n) {
+  let res = 1;
+  for (let i = 2; i <= n; i++) res *= i;
+  return res;
+}
+console.log(factorialRec(5));
+console.log(factorialLoop(5));
+
+console.log('Задание #055:');
+function fibonacci(n, memo = {}) {
+  if (n in memo) return memo[n];
+  if (n <= 1) return n;
+  memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+  return memo[n];
+}
+console.log(fibonacci(10));
+
+console.log('Задание #056:');
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log('Задание #057:');
+const crypto = require('crypto');
+const random = crypto.randomInt(0, 100);
+console.log(random);
+
+console.log('Задание #058:');
+function isPrime(n) {
+  if (n <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+console.log(isPrime(7));
+
+console.log('Задание #059:');
+function gcd(a, b) {
+  return b === 0 ? a : gcd(b, a % b);
+}
+console.log(gcd(48, 18));
+
+console.log('Задание #060:');
+function round(num, precision) {
+  return Math.round(num * 10 ** precision) / 10 ** precision;
+}
+console.log(round(3.14159, 2));
+
+console.log('Задание #061:');
+console.log(4 << 2);
+
+console.log('Задание #062:');
+function sumDigits(n) {
+  return String(n).split('').reduce((acc, d) => acc + Number(d), 0);
+}
+console.log(sumDigits(123));
+
+console.log('Задание #063:');
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+console.log(lerp(0, 100, 0.5));
+
+console.log('Задание #064:');
+console.log(-4 >> 1);
+console.log(-4 >>> 1);
+
+console.log('Задание #065:');
+function digitCount(n) {
+  return Math.floor(Math.log10(Math.abs(n))) + 1;
+}
+console.log(digitCount(123));
+
+console.log('Переход к теме comparison (hard)...');
+
+console.log('Задание #086:');
+function deepEqual(a, b) {
+  if (a === b) return true;
+  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) return false;
+  const keysA = Object.keys(a), keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+  for (let key of keysA) {
+    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+  }
+  return true;
+}
+console.log(deepEqual({a:1}, {a:1}));
+
+console.log('Задание #087:');
+const set = new Set();
+set.add(NaN);
+console.log(set.has(NaN));
+
+console.log('Задание #088:');
+console.log({ valueOf: () => 42 } == 42);
+
+console.log('Задание #089:');
+console.log([] == ![]);
+
+console.log('Задание #090:');
+function sortStrings(arr) {
+  return arr.sort((a, b) => a.localeCompare(b));
+}
+console.log(sortStrings(['ё', 'а', 'я']));
+
+console.log('Задание #091:');
+console.log([NaN].includes(NaN));
+
+console.log('Задание #092:');
+console.log(new String("a") == "a");
+console.log(new String("a") === "a");
+
+console.log('Задание #093:');
+function multiSort(arr, fields) {
+  return arr.sort((a, b) => {
+    for (let field of fields) {
+      if (a[field] < b[field]) return -1;
+      if (a[field] > b[field]) return 1;
+    }
+    return 0;
+  });
+}
+console.log(multiSort([{a:2,b:1}, {a:1,b:2}, {a:1,b:1}], ['a', 'b']));
+
+console.log('Задание #095:');
+
+console.log('Задание #096:');
+const target = {};
+const proxy = new Proxy(target, {
+  get: (target, prop) => {
+    if (prop === Symbol.toPrimitive) {
+      return (hint) => {
+        console.log(`ToPrimitive hint: ${hint}`);
+        return 42;
+      };
+    }
+    return target[prop];
+  }
+});
+console.log(proxy == 42);
+
+console.log('Переход к теме conditions (hard)...');
+
+console.log('Задание #118:');
+function exampleGuard(x) {
+  if (x < 0) return 'negative';
+  if (x === 0) return 'zero';
+  return 'positive';
+}
+console.log(exampleGuard(-1));
+
+console.log('Задание #119:');
+const strategies = {
+  add: (a, b) => a + b,
+  sub: (a, b) => a - b
+};
+console.log(strategies['add'](1, 2));
+
+console.log('Задание #120:');
+function match(val, cases) {
+  return cases.find(([pred]) => pred(val))?.[1]?.(val);
+}
+console.log(match(5, [
+  [x => x > 0, x => 'positive'],
+  [x => x < 0, x => 'negative'],
+  [() => true, () => 'zero']
+]));
+
+console.log('Задание #121:');
+const expensiveA = () => { console.log('A'); return 1; };
+const expensiveB = () => { console.log('B'); return 2; };
+const lazyFn = true ? expensiveA : expensiveB;
+console.log(lazyFn());
+
+console.log('Задание #122:');
+let state = 'idle';
+switch (state) {
+  case 'idle': console.log('Idle state'); break;
+  case 'loading': console.log('Loading'); break;
+}
+
+console.log('Задание #123:');
+const obj4 = { a: { b: 42 } };
+console.log(obj4?.a?.b);
+console.log(obj4?.c?.d);
+
+console.log('Задание #124:');
+function pipe(...fns) {
+  return (initial) => fns.reduce((v, f) => v != null ? f(v) : v, initial);
+}
+const fn1 = x => x + 1;
+const fn2 = x => null;
+const fn3 = x => x * 2;
+console.log(pipe(fn1, fn2, fn3)(1));
+
+console.log('Задание #125:');
+const isString = x => typeof x === 'string';
+const isNumber = x => typeof x === 'number';
+const isArray = x => Array.isArray(x);
+const isNull = x => x === null;
+console.log(isString('hello'));
+
+console.log('Задание #126:');
+function cond(pairs) {
+  return (val) => pairs.find(([p]) => p(val))?.[1](val);
+}
+console.log(cond([
+  [x => x > 0, x => 'positive'],
+  [x => x < 0, x => 'negative'],
+  [() => true, () => 'zero']
+])(5));
+
+console.log('Задание #128:');
+function when(predicate, transform) {
+  return (val) => predicate(val) ? transform(val) : val;
+}
+const doubleIfEven = when(x => x % 2 === 0, x => x * 2);
+console.log(doubleIfEven(4));
+console.log(doubleIfEven(3));
+
+console.log('Задание #129:');
+const routes = {
+  '/home': () => console.log('Home'),
+  '/about': () => console.log('About')
+};
+routes['/home']?.();
+
+console.log('Переход к теме logical (hard)...');
+
+console.log('Задание #150:');
+function and(...fns) {
+  return (val) => fns.every(fn => fn(val));
+}
+const isEven = x => x % 2 === 0;
+const isPositive = x => x > 0;
+const isEvenPositive = and(isEven, isPositive);
+console.log(isEvenPositive(4));
+
+console.log('Задание #151:');
+function or(...fns) {
+  return (val) => fns.some(fn => fn(val));
+}
+const isEvenOrPositive = or(isEven, isPositive);
+console.log(isEvenOrPositive(-2));
+
+console.log('Задание #152:');
+function not(fn) {
+  return (...args) => !fn(...args);
+}
+const isOdd = not(isEven);
+console.log(isOdd(3));
+
+console.log('Задание #153:');
+function xor(a, b) {
+  return (a || b) && !(a && b);
+}
+console.log(xor(true, false));
+
+console.log('Задание #155:');
+function compose(...fns) {
+  return (val) => fns.reduceRight((acc, fn) => acc === null ? null : fn(acc), val);
+}
+const fnA = x => x + 1;
+const fnB = x => x > 5 ? null : x * 2;
+console.log(compose(fnA, fnB)(3));
+function composeWithNull(...fns) {
+  return (val) => fns.reduceRight((acc, fn) => acc == null ? null : fn(acc), val);
+}
+const fnC = x => null;
+console.log(composeWithNull(fnA, fnC, fnB)(3));
+
+console.log('Задание #156:');
+const obj5 = { a: { b: { c: { d: 42 } } } };
+console.log(obj5 && obj5.a && obj5.a.b && obj5.a.b.c && obj5.a.b.c.d);
+
+console.log('Задание #158:');
+let aa = true;
+aa &&= false;
+console.log(aa);
+
+console.log('Задание #159:');
+function allTrue(arr) {
+  return arr.reduce((acc, val) => acc && Boolean(val), true);
+}
+console.log(allTrue([true, true]));
+
+console.log('Задание #160:');
+function either(error, result) {
+  return result ?? error;
+}
+console.log(either('error', null));
+
+console.log('Задание #161:');
+console.log(!(true && false) === !true || !false);
+
+console.log('Переход к теме nullish (hard)...');
+
+console.log('Задание #182:');
+function nullish(a, b) {
+  return a !== null && a !== undefined ? a : b;
+}
+console.log(nullish(0, 'default'));
+
+console.log('Задание #184:');
+function getDeep(obj, path, defaultVal) {
+  return path.split('.').reduce((acc, k) => acc?.[k], obj) ?? defaultVal;
+}
+console.log(getDeep({a:{b:42}}, 'a.b', 0));
+
+console.log('Задание #185:');
+const obj6 = { get prop() { return undefined; } };
+console.log(obj6.prop ?? 'default');
+
+console.log('Задание #186:');
+function deepMerge(defaults, options) {
+  const result = { ...defaults };
+  for (let key in options) {
+    if (typeof options[key] === 'object' && typeof defaults[key] === 'object') {
+      result[key] = deepMerge(defaults[key], options[key]);
+    } else {
+      result[key] = options[key] ?? defaults[key];
+    }
+  }
+  return result;
+}
+console.log(deepMerge({a:1}, {a:2}));
+
+console.log('Задание #187:');
+function coalesce(...vals) {
+  return vals.find(v => v !== null && v !== undefined);
+}
+console.log(coalesce(null, undefined, 0, 'hello'));
+
+console.log('Задание #188:');
+console.log({a: {b:42}}?.b ?? 0);
+
+console.log('Задание #189:');
+const cache = {};
+function memo(key) {
+  cache[key] ??= Math.random();
+  return cache[key];
+}
+console.log(memo('a'));
+console.log(memo('a'));
+
+console.log('Задание #191:');
+
+console.log('Задание #192:');
+const env = { KEY: 'env' };
+const config = {};
+const defaults = { KEY: 'default' };
+const val = env.KEY ?? config.KEY ?? defaults.KEY;
+console.log(val);
+
+console.log('Задание #193:');
+function withDefault(obj, defaults) {
+  return new Proxy(obj, {
+    get: (target, key) => target[key] ?? defaults[key]
+  });
+}
+const proxied = withDefault({a: null}, {a: 42});
+console.log(proxied.a);
+```
