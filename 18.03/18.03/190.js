@@ -1,0 +1,1 @@
+console.log(JSON.stringify({ fn: () => {}, x: undefined }));
