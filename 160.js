@@ -1,1 +1,0 @@
-const getName = user => user.name;
