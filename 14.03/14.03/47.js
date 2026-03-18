@@ -1,0 +1,1 @@
+const ref = new WeakRef({ data: 42 });

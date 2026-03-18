@@ -1,0 +1,1 @@
+console.log(Symbol.for("id") === Symbol("id"));

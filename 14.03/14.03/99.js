@@ -1,0 +1,1 @@
+const globalSym = Symbol.for("id");
