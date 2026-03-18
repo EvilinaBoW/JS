@@ -1,1 +1,0 @@
-const getName = ({ name }) => name;
