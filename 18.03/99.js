@@ -1,0 +1,1 @@
+console.log("Array, String, Set, Map, arguments");
